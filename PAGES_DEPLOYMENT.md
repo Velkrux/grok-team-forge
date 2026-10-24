@@ -1,6 +1,6 @@
 # Deploy with GitHub Pages Actions
 
-The target is the project subpath `/grok-team-forge/`. A live URL is recorded only after actual deployment and public acceptance checks.
+Live project site: https://velkrux.github.io/grok-team-forge/ . The initial [supported Actions deployment](https://github.com/Velkrux/grok-team-forge/actions/runs/40120515454) succeeded on 2026-10-24. See [actual verification and the remaining hosted-download limitation](TEST_REPORT.md). The following steps reproduce the configured deployment.
 
 1. Publish only this clean reviewed source, never a private working checkout or its history. Configure repository Pages **Source: GitHub Actions** after the owner's explicit public-release approval.
 2. CI automatically tests/builds pull requests and main pushes. Inspect its actual run result.

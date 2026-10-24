@@ -4,6 +4,8 @@
 
 A deterministic workflow builder with editable roles, handoff contracts, synthetic stress tests and a **manual bridge to ordinary Grok Chat**. Built by @Velkrux. No API key or model request from the application.
 
+**[Open the app](https://velkrux.github.io/grok-team-forge/)** · [Source repository](https://github.com/Velkrux/grok-team-forge)
+
 ![Grok Bridge — real product interface, awaiting user input](docs/screenshots/bridge-desktop.png)
 
 ## Try it locally
@@ -18,7 +20,7 @@ node server.mjs 4180
 
 Open http://localhost:4180. [Five-step quickstart](QUICKSTART.md) · [Bridge guide](GROK_BRIDGE_GUIDE.md).
 
-The hosted app link will be added after the actual Pages deployment is verified. No unverified live-site or CI badge is displayed here.
+The public site was independently opened on 2026-10-24. [CI passed](https://github.com/Velkrux/grok-team-forge/actions/runs/40120341288) and [Pages deployed successfully](https://github.com/Velkrux/grok-team-forge/actions/runs/40120515454). See [verification scope and limitations](TEST_REPORT.md), including the hosted download-inspection limitation.
 
 ## Two modes
 
