@@ -1,0 +1,9 @@
+node_modules/
+dist/
+delivery/
+scratch/
+*.log
+.env*
+evidence/
+video-production*/
+__pycache__/

@@ -1,0 +1,75 @@
+{
+  "id": "forge-team",
+  "mission": "Review GitHub release notes and merged changes, verify references and draft a clear changelog for human approval.",
+  "kind": "github",
+  "title": "GitHub Release Notes Assistant",
+  "revision": 1,
+  "agents": [
+    {
+      "id": "collector",
+      "name": "Collector",
+      "role": "Collector",
+      "responsibility": "Collect supplied release entries and merged-change references.",
+      "inputs": "Repository scope, release window, provided references",
+      "outputs": "Change packet with release/PR IDs and dates",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "auditor",
+      "name": "Auditor",
+      "role": "Auditor",
+      "responsibility": "Check references and distinguish released, planned and uncertain changes.",
+      "inputs": "Change packet",
+      "outputs": "Audited change list with caveats",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "writer",
+      "name": "Writer",
+      "role": "Writer",
+      "responsibility": "Draft release notes grounded in the audited change list.",
+      "inputs": "Audited change list",
+      "outputs": "Release-note draft awaiting human approval",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "h1",
+      "from": "collector",
+      "to": "auditor",
+      "name": "Source packet",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "h2",
+      "from": "auditor",
+      "to": "writer",
+      "name": "Verified evidence",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    }
+  ],
+  "rules": {
+    "freshness": false,
+    "evidence": true,
+    "timestamps": false,
+    "knownSources": true,
+    "conflicts": false,
+    "untrustedAsData": false,
+    "scopedApproval": false
+  }
+}

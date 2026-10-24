@@ -1,0 +1,59 @@
+{
+  "scope": "actual browser layout assertions, no model run",
+  "frameWidths": [
+    390,
+    768
+  ],
+  "observed": [
+    {
+      "tests": [
+        {
+          "name": "No document horizontal overflow",
+          "pass": true
+        },
+        {
+          "name": "Manual Bridge visible",
+          "pass": true
+        },
+        {
+          "name": "Single-column prompt/import at this width",
+          "pass": true
+        },
+        {
+          "name": "Prompt fits viewport",
+          "pass": true
+        },
+        {
+          "name": "Mode controls have usable height",
+          "pass": true
+        }
+      ],
+      "width": 753
+    },
+    {
+      "tests": [
+        {
+          "name": "No document horizontal overflow",
+          "pass": true
+        },
+        {
+          "name": "Manual Bridge visible",
+          "pass": true
+        },
+        {
+          "name": "Single-column prompt/import at this width",
+          "pass": true
+        },
+        {
+          "name": "Prompt fits viewport",
+          "pass": true
+        },
+        {
+          "name": "Mode controls have usable height",
+          "pass": true
+        }
+      ],
+      "width": 375
+    }
+  ]
+}

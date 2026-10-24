@@ -1,0 +1,75 @@
+{
+  "id": "forge-team",
+  "mission": "Research competitor product changes from public sources, preserve evidence and prepare a comparison for human review.",
+  "kind": "competitors",
+  "title": "Competitor Research Team",
+  "revision": 1,
+  "agents": [
+    {
+      "id": "researcher",
+      "name": "Researcher",
+      "role": "Researcher",
+      "responsibility": "Collect relevant competitor changes using public, attributable material.",
+      "inputs": "Mission, competitors, public sources",
+      "outputs": "Dated source packet",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "reviewer",
+      "name": "Reviewer",
+      "role": "Reviewer",
+      "responsibility": "Validate comparisons, preserve uncertainty and reject unsupported claims.",
+      "inputs": "Dated source packet",
+      "outputs": "Reviewed comparison and unresolved questions",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "editor",
+      "name": "Editor",
+      "role": "Editor",
+      "responsibility": "Turn the comparison into a concise decision brief.",
+      "inputs": "Reviewed comparison",
+      "outputs": "Human-review draft",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "h1",
+      "from": "researcher",
+      "to": "reviewer",
+      "name": "Source packet",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "h2",
+      "from": "reviewer",
+      "to": "editor",
+      "name": "Verified evidence",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    }
+  ],
+  "rules": {
+    "freshness": false,
+    "evidence": true,
+    "timestamps": false,
+    "knownSources": true,
+    "conflicts": false,
+    "untrustedAsData": false,
+    "scopedApproval": false
+  }
+}

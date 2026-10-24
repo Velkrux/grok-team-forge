@@ -1,0 +1,97 @@
+{
+  "id": "forge-team",
+  "mission": "Monitor AI model releases, verify official announcements, compare meaningful changes and prepare a weekly briefing.",
+  "kind": "releases",
+  "title": "AI Model Release Monitor",
+  "revision": 1,
+  "agents": [
+    {
+      "id": "scout",
+      "name": "Scout",
+      "role": "Scout",
+      "responsibility": "Find relevant model announcements and preserve their original source records.",
+      "inputs": "Mission, reporting window, official source list",
+      "outputs": "Source packet with IDs, dates and claim excerpts",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "verifier",
+      "name": "Verifier",
+      "role": "Verifier",
+      "responsibility": "Check source authority, dates, scope and disagreement. Never invent certainty.",
+      "inputs": "Source packet",
+      "outputs": "Verified packet with uncertainty and rejected-source reasons",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "analyst",
+      "name": "Analyst",
+      "role": "Analyst",
+      "responsibility": "Explain meaningful capability changes and the limits of the available evidence.",
+      "inputs": "Verified packet",
+      "outputs": "Comparison with cited changes and open questions",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    },
+    {
+      "id": "reporter",
+      "name": "Reporter",
+      "role": "Reporter",
+      "responsibility": "Prepare a useful weekly briefing for human review.",
+      "inputs": "Cited comparison",
+      "outputs": "Draft briefing; no external publication",
+      "allowed": "Read provided public sources; prepare local artifacts.",
+      "forbidden": "No external sending, publishing, purchases, permission changes or production writes.",
+      "review": "Cite source IDs and dates. Preserve uncertainty. Human reviews the final result."
+    }
+  ],
+  "handoffs": [
+    {
+      "id": "h1",
+      "from": "scout",
+      "to": "verifier",
+      "name": "Source packet",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "h2",
+      "from": "verifier",
+      "to": "analyst",
+      "name": "Verified evidence",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    },
+    {
+      "id": "h3",
+      "from": "analyst",
+      "to": "reporter",
+      "name": "Cited analysis",
+      "requiredFields": [
+        "source_ids",
+        "claim",
+        "uncertainty"
+      ]
+    }
+  ],
+  "rules": {
+    "freshness": false,
+    "evidence": true,
+    "timestamps": false,
+    "knownSources": true,
+    "conflicts": false,
+    "untrustedAsData": false,
+    "scopedApproval": false
+  }
+}

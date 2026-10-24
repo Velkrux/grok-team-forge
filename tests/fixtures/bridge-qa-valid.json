@@ -1,0 +1,17 @@
+{
+  "fixture_version": "forge-bridge-2026-10-24.v1",
+  "task_id": "release-window-01",
+  "role_id": "scout",
+  "as_of": "2026-10-24T12:00:00Z",
+  "claim": "Frozen release-status extraction",
+  "claims": [
+    {"release_id":"EMBER-1","status":"beta","source_id":"E-01","source_published_at":"2026-10-22T12:00:00Z","evidence_quote":"Ember 1 adds a beta conflict viewer."},
+    {"release_id":"NIMBUS-2","status":"held","source_id":"N-02","source_published_at":"2026-10-23T09:00:00Z","evidence_quote":"Nimbus 2 is held while offline capture is reviewed."}
+  ],
+  "source_ids": ["E-01", "N-02"],
+  "observed_at": "2026-10-24T12:00:00Z",
+  "uncertainty": "Source claims only; no independent model or product testing.",
+  "approval": {"state":"not_requested","scope":"draft_only"},
+  "actions": [],
+  "next_role": "verifier"
+}
